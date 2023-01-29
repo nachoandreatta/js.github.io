@@ -2,7 +2,7 @@
 alert("Bienvenida/o a la calculadora de Paypal")
 
 //body
-let seguir; 
+let seguir;
 
 while (seguir != "s") {
     //ingreso el valor
