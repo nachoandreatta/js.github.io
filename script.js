@@ -1,5 +1,6 @@
 //inicio
 bienvenido ()
+//fewdfhsduigf
 
 let edad = parseInt(prompt("Ingrese su edad"))
 if (edad < 18){
