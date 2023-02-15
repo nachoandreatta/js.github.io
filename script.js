@@ -86,6 +86,6 @@ arrayHotel.forEach((habitaciones)=>{
     console.log(habitaciones)
 })
 
-//muestro las personas en las habitaciones con un foreach
+//muestro los precios en las habitaciones con un foreach
 arrayHotel.forEach(hotel=>console.log(hotel.precio))
 
