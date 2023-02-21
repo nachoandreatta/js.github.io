@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+<header id="header" class="header">
+    <!-- Lista de Autos -->
+    <div class="container">
+        <div class="row">
+            <div class="two columns u-pull-right">
+                <ul>
+                    <li class="submenu">
+                            <img src="cart.png" id="img-carrito">
+                            <div id="carrito">                                    
+                                    <table id="lista-carrito" class="u-full-width">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    </div>
+    </header>
+
+    <div id="lista-autos" class="container">
+        <h1 id="encabezado" class="encabezado">Alquileres de autos</h1>
+        <div class="row">
+            <!-- Auto 1 -->
+            <div class="four columns">
+                <div class="card">
+                    <div class="info-card">
+                        <h4>Ford Mustang Shelby GT '67</h4>
+                        <p class="precio"><span class="u-pull-right ">$1100</span> Pesos por kilometro</p>
+                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Auto 2 -->
+            <div class="four columns">
+                    <div class="card">
+                        <div class="info-card">
+                            <h4>Chevy Coupe Serie 2 '78</h4>
+                            <p class="precio"><span class="u-pull-right ">$1000</span> Pesos por kilometro</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
+                        </div>
+                    </div>
+            </div>
+            <!-- Auto 3 -->
+            <div class="four columns">
+                    <div class="card">
+                        <div class="info-card">
+                            <h4>Falcon Super Sprint '82</h4>
+                            <p class="precio"><span class="u-pull-right ">$900</span> Pesos por kilometro</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
+                        </div>
+                    </div>
+            </div>
+    </div>  
+
+<script src="script.js"></script>
+
+</body>
+</html>
