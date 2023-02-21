@@ -1,9 +1,19 @@
+//creo mi objeto
+class Auto {
+    constructor (nombre,precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+}
+
 //creo mi array
-const autos = [
-    {nombre: "Mustang", precio: "1100"},
-    {nombre: "Chevy", precio: "1000"},
-    {nombre: "Falcon", precio: "900"},
-];
+const mustang = new Auto ("Mustang",1100);
+const chevy = new Auto ("Chevy",1000);
+const falcon = new Auto ("Falcon",900);
+
+const arrayAuto = [mustang,chevy,falcon];
+console.log(arrayAuto);
+
 //empiezo el armado del carrito
 let carrito = [];
 
@@ -17,7 +27,7 @@ while(seleccion !="si" && seleccion !="no"){
 if(seleccion == "si"){
     alert("Podes elegir sobre nuestros siguientes vehiculos a disposicion:")
     //uso map para recorrer el array
-    let listaAutos = autos.map((autos) => "el " + autos.nombre + " tiene un valor de " + autos.precio + 
+    let listaAutos = arrayAuto.map((autos) => "el " + autos.nombre + " tiene un valor de " + autos.precio + 
     " ARS por kilometro");
     //uso join para juntar los valores del array
     alert(listaAutos.join(" - "));
@@ -50,6 +60,11 @@ while (seleccion != "no"){
 
         carrito.push({autos, km, precio});
         console.log(carrito)
+
+        carrito.forEach((carritoFinal) =>  {
+            alert(`Usted eligio el vehiculo: ${carritoFinal.autos}, y su monto estimado será de : ${carritoFinal.precio * carritoFinal.km}`)
+        })
+
         } else {
             alert("No contamos con ese vehiculo");
         }
@@ -58,9 +73,6 @@ while (seleccion != "no"){
         //uso el metodo foreach para declarar los valores de forma unitaria
         while(seleccion === "no"){
             alert("¡gracias por alquilar tu vehiculo!");
-            carrito.forEach((carritoFinal) =>  {
-                alert(`Usted eligio el vehiculo: ${carritoFinal.autos}, y su monto estimado será de : ${carritoFinal.precio * carritoFinal.km}`)
-            })
             break;
         }
 
