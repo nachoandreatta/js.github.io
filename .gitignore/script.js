@@ -1,82 +1,82 @@
-const carrito = document.querySelector('#carrito');
-const listaAutos = document.querySelector('#lista-autos');
-const contenedorCarrito = document.querySelector('#lista-carrito tbody');
-const vaciarCarritoBtn = document.querySelector('#vaciar-carrito'); 
-let articulosCarrito = [];
-
-cargarEventListeners();
-
-function cargarEventListeners() {
-     listaAutos.addEventListener('click', agregarAuto);
-     carrito.addEventListener('click', eliminarAuto);
-     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
-
+//creo mi objeto
+class Auto {
+    constructor (nombre,precio){
+        this.nombre = nombre;
+        this.precio = precio;
+    }
 }
 
-function agregarAuto(e) {
-     e.preventDefault();
-     if(e.target.classList.contains('agregar-carrito')) {
-          const auto = e.target.parentElement.parentElement;
-          leerDatosAuto(auto);
-     }
+//creo mi array
+const mustang = new Auto ("Mustang",1100);
+const chevy = new Auto ("Chevy",1000);
+const falcon = new Auto ("Falcon",900);
+
+const arrayAuto = [mustang,chevy,falcon];
+console.log(arrayAuto);
+
+//empiezo el armado del carrito
+let carrito = [];
+
+let seleccion = prompt("Bienvenido a Autos Alquiler. Desea alquilar algun auto? si/no");
+
+while(seleccion !="si" && seleccion !="no"){
+    alert("Ingresa si o no");
+    seleccion = prompt("Desea alquilar algun auto? si/no");
 }
 
-function leerDatosAuto(auto) {
-     const infoAuto = {
-          titulo: auto.querySelector('h4').textContent,
-          precio: auto.querySelector('.precio span').textContent,
-          id: auto.querySelector('a').getAttribute('data-id'), 
-          cantidad: 1
-     }
-
-
-     if( articulosCarrito.some( auto => auto.id === infoAuto.id ) ) { 
-          const autos = articulosCarrito.map( auto => {
-               if( auto.id === infoAuto.id ) {
-                    auto.cantidad++;
-                     return auto;
-                } else {
-                     return auto;
-             }
-          })
-          articulosCarrito = [...autos];
-     }  else {
-          articulosCarrito = [...articulosCarrito, infoAuto];
-     }
-
-     carritoHTML();
+if(seleccion == "si"){
+    alert("Podes elegir sobre nuestros siguientes vehiculos a disposicion:")
+    //uso map para recorrer el array
+    let listaAutos = arrayAuto.map((autos) => "el " + autos.nombre + " tiene un valor de " + autos.precio + 
+    " ARS por kilometro");
+    //uso join para juntar los valores del array
+    alert(listaAutos.join(" - "));
+} else if (seleccion == "no"){
+    alert("Gracias por su consulta, lo esperamos");
 }
 
-function eliminarAuto(e) {
-     e.preventDefault();
-     if(e.target.classList.contains('borrar-auto') ) {
-          const autoId = e.target.getAttribute('data-id')
-          
-          articulosCarrito = articulosCarrito.filter(auto => auto.id !== autoId);
+while (seleccion != "no"){
+    let autos = prompt("Elegi el/los auto/s que queres alquilar (Mustang - Chevy - Falcon)");
+    let precio = 0;
 
-          carritoHTML();
-     }
-}
+    if (autos == "Mustang" || autos == "Chevy" || autos == "Falcon"){
+            switch (autos) {
+            case "Mustang":
+                precio = 1100;
+                break;
 
-function carritoHTML() {
-     vaciarCarrito();
-     articulosCarrito.forEach(auto => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-               <td>${auto.titulo}</td>
-               <td>${auto.precio}</td>
-               <td>${auto.cantidad} </td>
-               <td>
-                    <a href="#" class="borrar-auto" data-id="${auto.id}">X</a>
-               </td>
-          `;
-          contenedorCarrito.appendChild(row);
-     });
+            case "Chevy":
+                precio = 1000;
+                break;
 
-}
+            case "Falcon":
+                precio = 900;
+                break;
 
-function vaciarCarrito() {
-     while(contenedorCarrito.firstChild) {
-          contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-      }
+            default:
+                break;
+        }
+        let km = parseInt( prompt("Ingrese el estimado de kilometros que hará"))
+
+        carrito.push({autos, km, precio});
+        console.log(carrito)
+
+        carrito.forEach((carritoFinal) =>  {
+            alert(`Usted eligio el vehiculo: ${carritoFinal.autos}, y su monto estimado será de : ${carritoFinal.precio * carritoFinal.km}`)
+        })
+
+        } else {
+            alert("No contamos con ese vehiculo");
+        }
+
+        seleccion = prompt("Desea alquilar otro vehiculo? si/no");
+        //uso el metodo foreach para declarar los valores de forma unitaria
+        while(seleccion === "no"){
+            alert("¡gracias por alquilar tu vehiculo!");
+            break;
+        }
+
+    //uso el metodo reduce para calcular el total
+    const suma = carrito.reduce((acc, el) => acc + el.precio * el.km, 0)
+    alert(`El total estimado será de: ${suma}`)
 }
