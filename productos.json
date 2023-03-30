@@ -1,0 +1,50 @@
+[
+	{
+		"precio": 4900,
+		"id": 1,
+		"title": "Chevrolet 400 SS Modelo 1970",
+		"thumbnailUrl": "imgs/400.jpg"
+	},
+
+	{
+		"precio": 5900,
+		"id": 2,
+		"title": "Chevrolet Chevy Coupé Serie 2 1976",
+		"thumbnailUrl": "imgs/chevy.jpg"
+	},
+
+	{
+		"precio": 4900,
+		"id": 3,
+		"title": "Ford Falcon Futura 1980",
+		"thumbnailUrl": "imgs/falcon.jpg"
+	},
+
+	{
+		"precio": 8600,
+		"id": 4,
+		"title": "Ford Mustang Shelby GT 1967",
+		"thumbnailUrl": "imgs/mustang.jpg"
+	},
+
+	{
+		"precio": 5200,
+		"id": 5,
+		"title": "Ford Taunus Coupé 1984",
+		"thumbnailUrl": "imgs/taunus.jpg"
+	},
+
+	{
+		"precio": 5500,
+		"id": 6,
+		"title": "IKA-Renault Torino 1967",
+		"thumbnailUrl": "imgs/torino.jpg"
+	},
+
+	{
+		"precio": 4900,
+		"id": 7,
+		"title": "Renault Fuego Coupé 1992",
+		"thumbnailUrl": "imgs/fuego.jpg"
+	}
+]

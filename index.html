@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carrito</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 <body>
-<header id="header" class="header">
-    <!-- Lista de Autos -->
-    <div class="container">
-        <div class="row">
-            <div class="two columns u-pull-right">
-                <ul>
-                    <li class="submenu">
-                            <img src="cart.png" id="img-carrito">
-                            <div id="carrito">                                    
-                                    <table id="lista-carrito" class="u-full-width">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-                                    <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
-                            </div>
-                    </li>
-                </ul>
-            </div>
-        </div> 
-    </div>
-    </header>
+	<div class="container">
+		<h1>Alquileres de Autos Clásicos por Día</h1>
+		<hr>
+		<table class="table">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th scope="col">Item</th>
+				<th scope="col">Cantidad (días)</th>
+				<th scope="col">Acción</th>
+				<th scope="col">Total</th>
+			  </tr>
+			</thead>
+			<tbody id="items"></tbody>
+			<tfoot>
+			  <tr id="footer">
+				<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+			  </tr>
+			</tfoot>
+		  </table>
+		<div class="row" id="cards"></div>
+	</div>
 
-    <div id="lista-autos" class="container">
-        <h1 id="encabezado" class="encabezado">Alquileres de autos</h1>
-        <div class="row">
-            <!-- Auto 1 -->
-            <div class="four columns">
-                <div class="card">
-                    <div class="info-card">
-                        <h4>Ford Mustang Shelby GT '67</h4>
-                        <p class="precio"><span class="u-pull-right ">$1100</span> Pesos por kilometro</p>
-                        <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Auto 2 -->
-            <div class="four columns">
-                    <div class="card">
-                        <div class="info-card">
-                            <h4>Chevy Coupe Serie 2 '78</h4>
-                            <p class="precio"><span class="u-pull-right ">$1000</span> Pesos por kilometro</p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-            </div>
-            <!-- Auto 3 -->
-            <div class="four columns">
-                    <div class="card">
-                        <div class="info-card">
-                            <h4>Falcon Super Sprint '82</h4>
-                            <p class="precio"><span class="u-pull-right ">$900</span> Pesos por kilometro</p>
-                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
-                        </div>
-                    </div>
-            </div>
-    </div>  
+	<template id="template-footer">
+        <th scope="row" colspan="2">Total productos</th>
+        <td>10</td>
+        <td>
+            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+                vaciar todo
+            </button>
+        </td>
+        <td class="font-weight-bold">$ <span>0000</span></td>
+    </template>
+    
+    <template id="template-carrito">
+      <tr>
+        <th scope="row">id</th>
+        	<td>auto</td>
+        		<td>1</td>
+        <td>
+            <button class="btn btn-info btn-sm">
+                +
+            </button>
+            <button class="btn btn-danger btn-sm">
+                -
+            </button>
+        </td>
+        <td>$ <span>000</span></td>
+      </tr>
+    </template>
+
+
+	<template id="template-card">
+		<div class="col-12 mb-2 col-md-4">
+		  <div class="card">
+			    <img src="" alt="" class="card-img-top">
+			<div class="card-body">
+			  	<h5>Titulo</h5>
+			  		<p>precio</p>
+			  			<button class="btn btn-dark">Alquilar</button>
+			</div>
+		  </div>
+		</div>
+	  </template>
+	
 
 <script src="script.js"></script>
-
 </body>
 </html>
